@@ -1,0 +1,37 @@
+# 类注释的作者
+author: ronwxy
+
+# 生成文件输出的根路径（绝对路径）
+outputDir: "E:\\git\\jboost-boot\\jboost-auth\\src\\main\\java"
+# 项目的根包名
+parentPackage: cn.jboost.boot.auth
+# 模块名（作为子包）
+moduleName:
+
+# 需要生成代码的表名，多个以,分隔。
+includeTables: dept,job,open_user,role,
+#robot_app_version,robot_base_config,robot_config,robot_info,robot_type_config,robot_type
+# 需要排除的表名，以,分隔。includeTables有值时，该值无效
+excludeTables:
+# 是否生成Mapper.xml文件
+generateXml: false
+
+# 表名前缀
+tablePrefix: ""
+# 是否覆盖已经生成的文件
+fileOverride: true
+# 是否添加swagger2注解
+swagger2: true
+# controller父类
+superControllerClass: cn.jboost.base.starter.mybatisplus.BaseController
+# service实现父类
+superServiceImplClass: cn.jboost.base.starter.mybatisplus.BaseService
+
+
+# 数据库连接配置
+datasource:
+  driverName: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://192.168.40.198:3306/dev_cnbot_platform?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+  username: root
+  password: Passw0rd
+

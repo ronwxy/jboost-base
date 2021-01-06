@@ -1,0 +1,9 @@
+.idea/
+*/.idea/
+*.iml
+target/
+*/target/
+rebel.xml
+.merge_file*
+/.scannerwork/
+/cnbot-generator/src/main/resources/generator.yaml

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jboost-dependencies</artifactId>
+        <groupId>cn.jboost.boot</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../jboost-dependencies</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>jboost-starters</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>jboost-starter-alioss</module>
+        <module>jboost-starter-alisms</module>
+        <module>jboost-starter-error</module>
+        <module>jboost-starter-limiter</module>
+        <module>jboost-starter-logging</module>
+        <module>jboost-starter-mybatisplus</module>
+        <module>jboost-starter-web</module>
+        <module>jboost-starter-alimq</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.jboost.boot</groupId>
+            <artifactId>jboost-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>
