@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class JwtUserDTO implements UserDetails {
+public class JwtUser implements UserDetails {
     private Long id;
     private String username;
     private UserTypeEnum userType;

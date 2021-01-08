@@ -14,7 +14,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import cn.jboost.base.common.converter.BaseConverter;
-import cn.jboost.base.common.util.ExceptionUtil;
+import cn.jboost.base.common.exception.ExceptionUtil;
 import org.apache.ibatis.binding.MapperMethod;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;

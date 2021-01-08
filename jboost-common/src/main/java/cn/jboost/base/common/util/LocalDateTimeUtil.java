@@ -18,7 +18,7 @@ public class LocalDateTimeUtil {
      *
      * @return
      */
-    public static long getEpochSecond() {
+    public static long getTimestampInSecond() {
         return LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8"));
     }
 
@@ -27,7 +27,7 @@ public class LocalDateTimeUtil {
      *
      * @return
      */
-    public static long getEpochMilli() {
+    public static long getTimestampInMilli() {
         return LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
     }
 
@@ -35,11 +35,10 @@ public class LocalDateTimeUtil {
      * 1591252878
      * 秒转换localDateTime
      *
-     * @param timestamp
+     * @param timestamp 以秒为单位的时间戳
      * @return
      */
-    public static LocalDateTime getLocalDateTimeToEpochSecond(Long timestamp) {
-//        LocalDate localDate = Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.ofHours(8)).toLocalDate();
+    public static LocalDateTime toLocalDateTime(long timestamp) {
         LocalDateTime localDateTime = Instant.ofEpochSecond(timestamp).atZone(ZoneOffset.ofHours(8)).toLocalDateTime();
         return localDateTime;
     }
@@ -51,7 +50,7 @@ public class LocalDateTimeUtil {
      * @param time
      * @return
      */
-    public static Date convertLDTToDate(LocalDateTime time) {
+    public static Date toDate(LocalDateTime time) {
         return Date.from(time.atZone(ZoneId.systemDefault()).toInstant());
     }
 
@@ -74,7 +73,7 @@ public class LocalDateTimeUtil {
      * @param time
      * @return
      */
-    public static LocalDateTime getMothStart(LocalDateTime time) {
+    public static LocalDateTime getMonthStart(LocalDateTime time) {
         return time.withDayOfMonth(01).withHour(0)
                 .withMinute(0)
                 .withSecond(0)

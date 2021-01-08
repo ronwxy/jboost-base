@@ -1,7 +1,7 @@
 package cn.jboost.base.starter.error;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.jboost.base.common.util.ExceptionUtil;
+import cn.jboost.base.common.exception.ExceptionUtil;
 import cn.jboost.base.common.util.ResponseWrapper;
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.http.HttpStatus;

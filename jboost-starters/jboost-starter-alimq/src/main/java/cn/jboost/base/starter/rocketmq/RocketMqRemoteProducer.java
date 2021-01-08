@@ -1,11 +1,11 @@
 package cn.jboost.base.starter.rocketmq;
 
+import cn.hutool.json.JSONUtil;
 import com.aliyun.mq.http.MQClient;
 import com.aliyun.mq.http.MQProducer;
 import com.aliyun.mq.http.model.TopicMessage;
 import cn.jboost.base.common.mq.IMqProducer;
 import cn.jboost.base.common.mq.MqMessage;
-import cn.jboost.base.common.util.GsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.CharEncoding;
 
@@ -34,7 +34,7 @@ public class RocketMqRemoteProducer implements IMqProducer {
         final String instanceId = rocketMqProperties.getInstanceId();
         // 获取Topic的生产者
         MQProducer producer = mqClient.getProducer(instanceId, topic);
-        String body = GsonUtil.toJson(message.getBody());
+        String body = JSONUtil.toJsonStr(message.getBody());
         try {
             TopicMessage msg = new TopicMessage(
                     // 消息内容

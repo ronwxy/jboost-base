@@ -1,31 +1,16 @@
 package cn.jboost.base.common.util;
 
 
+import cn.hutool.core.util.ObjectUtil;
 import com.google.common.base.Strings;
 
-import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Map;
 
 public class MyBatisUtil {
 
     public static boolean isEmpty(Object o) {
-        if (o == null) {
-            return true;
-        }
-
-        if (o instanceof String) {
-            return ((String) o).length() == 0;
-        } else if (o instanceof Collection) {
-            return ((Collection) o).isEmpty();
-        } else if (o.getClass().isArray()) {
-            return Array.getLength(o) == 0;
-        } else if (o instanceof Map) {
-            return ((Map) o).isEmpty();
-        } else {
-            return false;
-        }
-
+        return ObjectUtil.isEmpty(o);
     }
 
     public static boolean isNotEmpty(Object o) {
@@ -43,7 +28,9 @@ public class MyBatisUtil {
             return true;
         } else if (o instanceof Map) {
             return true;
-        } else return o.getClass().isArray();
+        } else {
+            return o.getClass().isArray();
+        }
     }
 
     public static boolean isNumeric(Object o) {
@@ -51,8 +38,9 @@ public class MyBatisUtil {
     }
 
     public static boolean isGreaterThanZero(Number n) {
-        if (n == null)
+        if (n == null) {
             return false;
+        }
         return (n.intValue() > 0);
     }
 
@@ -62,28 +50,16 @@ public class MyBatisUtil {
         return result;
     }
 
-    public static boolean isNotZero(String obj1) {
-        boolean result = true;
-        if (obj1.equalsIgnoreCase("0")) result = false;
-        return result;
-    }
-
     public static boolean isBothNotNull(String obj1, String obj2) {
-        boolean result = false;
-        if (null != obj1 && null != obj2) result = true;
-        return result;
+        return (null != obj1 && null != obj2);
     }
 
     public static boolean isFirstNull(String obj1, String obj2) {
-        boolean result = false;
-        if (null == obj1 && null != obj2) result = true;
-        return result;
+        return (null == obj1 && null != obj2);
     }
 
     public static boolean isSecondNull(String obj1, String obj2) {
-        boolean result = false;
-        if (null != obj1 && null == obj2) result = true;
-        return result;
+        return (null != obj1 && null == obj2);
     }
 
     public static String matchHead(String criteria) {
@@ -100,7 +76,7 @@ public class MyBatisUtil {
         return null;
     }
 
-    public static String matchAnywhere(String criteria) {
+    public static String matchAny(String criteria) {
         if (!Strings.isNullOrEmpty(criteria)) {
             return "%" + criteria + "%";
         }

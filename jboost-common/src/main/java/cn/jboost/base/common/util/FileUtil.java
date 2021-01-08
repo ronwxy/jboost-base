@@ -25,30 +25,23 @@ public class FileUtil extends cn.hutool.core.io.FileUtil {
 
     public static File toFile(MultipartFile multipartFile) {
         String fileName = multipartFile.getOriginalFilename();
-        String prefix = "." + getExtensionName(fileName);
+        String extension = "." + getExtensionName(fileName);
         File file = null;
-
         try {
-            file = File.createTempFile(IdUtil.simpleUUID(), prefix);
+            file = File.createTempFile(IdUtil.simpleUUID(), extension);
             multipartFile.transferTo(file);
         } catch (IOException var5) {
             log.error("fail to transfer multipartFile[{}] to file", fileName, var5);
         }
-
         return file;
     }
 
     public static void deleteFile(File... files) {
-        File[] var1 = files;
-        int var2 = files.length;
-
-        for (int var3 = 0; var3 < var2; ++var3) {
-            File file = var1[var3];
+        for (File file : files) {
             if (file.exists()) {
                 file.delete();
             }
         }
-
     }
 
     public static String getExtensionName(String filename) {
@@ -58,33 +51,30 @@ public class FileUtil extends cn.hutool.core.io.FileUtil {
                 return filename.substring(dot + 1);
             }
         }
-
         return filename;
     }
 
-    public static String getFileNameNoEx(String filename) {
+    public static String getFileName(String filename) {
         if (filename != null && filename.length() > 0) {
             int dot = filename.lastIndexOf(46);
             if (dot > -1 && dot < filename.length()) {
                 return filename.substring(0, dot);
             }
         }
-
         return filename;
     }
 
     public static String getSize(int size) {
-        String resultSize = "";
-        if (size / 1073741824 >= 1) {
-            resultSize = DF.format((double) ((float) size / 1.07374182E9F)) + "GB   ";
-        } else if (size / 1048576 >= 1) {
-            resultSize = DF.format((double) ((float) size / 1048576.0F)) + "MB   ";
-        } else if (size / 1024 >= 1) {
-            resultSize = DF.format((double) ((float) size / 1024.0F)) + "KB   ";
+        String resultSize;
+        if (size / GB >= 1) {
+            resultSize = DF.format((float) size / 1.07374182E9F) + "GB   ";
+        } else if (size / MB >= 1) {
+            resultSize = DF.format((float) size / 1048576.0F) + "MB   ";
+        } else if (size / KB >= 1) {
+            resultSize = DF.format((float) size / 1024.0F) + "KB   ";
         } else {
             resultSize = size + "B   ";
         }
-
         return resultSize;
     }
 

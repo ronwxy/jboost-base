@@ -2,8 +2,6 @@ package cn.jboost.base.common.util.security;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.json.JSONObject;
-import cn.jboost.base.common.constant.Constants;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +19,7 @@ public class SecurityUtil {
 
     /**
      * 获取
-     * 用户登录： {@link JwtUserDTO}
+     * 用户登录： {@link JwtUser}
      *
      * @return
      */

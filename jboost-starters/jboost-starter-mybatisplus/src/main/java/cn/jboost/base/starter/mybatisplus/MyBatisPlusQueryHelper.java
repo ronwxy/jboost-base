@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import cn.jboost.base.common.annotation.Query;
 import cn.jboost.base.common.constant.ErrorCodeEnum;
-import cn.jboost.base.common.util.ExceptionUtil;
+import cn.jboost.base.common.exception.ExceptionUtil;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.MyBatisSystemException;

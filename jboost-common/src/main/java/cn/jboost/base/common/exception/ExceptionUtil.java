@@ -1,9 +1,4 @@
-package cn.jboost.base.common.util;
-
-import cn.jboost.base.common.exception.ClientSideException;
-import cn.jboost.base.common.exception.ForbiddenException;
-import cn.jboost.base.common.exception.ServerSideException;
-import cn.jboost.base.common.exception.UnauthorizedException;
+package cn.jboost.base.common.exception;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

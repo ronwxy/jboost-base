@@ -74,10 +74,10 @@ public class AliOssManager {
 
             if (StringUtils.isNotEmpty(callbackUrl)) {
                 JSONObject jasonCallback = new JSONObject();
-                jasonCallback.put("callbackUrl", callbackUrl);
-                jasonCallback.put("callbackBody",
+                jasonCallback.set("callbackUrl", callbackUrl);
+                jasonCallback.set("callbackBody",
                         "filename=${object}&size=${size}&mimeType=${mimeType}&height=${imageInfo.height}&width=${imageInfo.width}");
-                jasonCallback.put("callbackBodyType", "application/x-www-form-urlencoded");
+                jasonCallback.set("callbackBodyType", "application/x-www-form-urlencoded");
                 String base64CallbackBody = BinaryUtil.toBase64String(jasonCallback.toString().getBytes());
                 respMap.put("callback", base64CallbackBody);
             }

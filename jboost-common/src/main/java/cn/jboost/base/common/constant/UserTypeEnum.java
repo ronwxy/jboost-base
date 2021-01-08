@@ -7,7 +7,6 @@ package cn.jboost.base.common.constant;
  * @Version 1.0
  */
 public enum UserTypeEnum {
-    CLIENT, //客户端用户
-    BACKEND, //后台管理用户
-    ROBOT, //机器人用户
+    USER, //客户端用户
+    ADMIN, //后台管理用户
 }

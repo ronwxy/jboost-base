@@ -2,7 +2,7 @@ package cn.jboost.base.starter.error;
 
 import cn.jboost.base.common.constant.ErrorCodeEnum;
 import cn.jboost.base.common.exception.BizException;
-import cn.jboost.base.common.util.ExceptionUtil;
+import cn.jboost.base.common.exception.ExceptionUtil;
 import cn.jboost.base.common.util.ResponseWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;

@@ -1,9 +1,7 @@
 package cn.jboost.base.common.util.security;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.jboost.base.common.constant.UserTypeEnum;
-import cn.jboost.base.common.util.ExceptionUtil;
-import cn.jboost.base.common.util.security.JwtUserDTO;
+import cn.jboost.base.common.exception.ExceptionUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Clock;
@@ -62,7 +60,7 @@ public class JwtUtil {
      * @param expire
      * @return
      */
-    public static String generateUserToken(String userType, JwtUserDTO jwtUser, String secret, long expire) {
+    public static String generateUserToken(String userType, JwtUser jwtUser, String secret, long expire) {
         final Date createdTime = clock.now();
         final Date expiredTime = new Date(createdTime.getTime() + expire);
 
@@ -82,10 +80,10 @@ public class JwtUtil {
     }
 
 
-    public static JwtUserDTO getJwtUser(String token, String secret) throws JsonProcessingException {
+    public static JwtUser getJwtUser(String token, String secret) throws JsonProcessingException {
         final Claims claims = getAllClaimsFromToken(token, secret);
         Map<String, Object> valueMap = claims.get(USER_DETAILS, Map.class);
-        return BeanUtil.mapToBean(valueMap, JwtUserDTO.class, false);
+        return BeanUtil.mapToBean(valueMap, JwtUser.class, false);
     }
 
     public static Serializable getUserId(String token, String secret) {
@@ -115,8 +113,6 @@ public class JwtUtil {
     public static String getUsername(String token, String secret) {
         return getClaim(token, secret, Claims::getSubject);
     }
-
-
 
     /**
      * token是否过期

@@ -1,6 +1,6 @@
 package cn.jboost.base.starter.limiter;
 
-import cn.jboost.base.common.util.ExceptionUtil;
+import cn.jboost.base.common.exception.ExceptionUtil;
 import cn.jboost.base.common.util.security.SecurityUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;

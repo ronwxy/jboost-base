@@ -1,5 +1,6 @@
 package cn.jboost.base.starter.rocketmq;
 
+import cn.hutool.json.JSONUtil;
 import com.aliyun.openservices.ons.api.Message;
 import com.aliyun.openservices.ons.api.OnExceptionContext;
 import com.aliyun.openservices.ons.api.SendCallback;
@@ -8,7 +9,6 @@ import com.aliyun.openservices.ons.api.bean.ProducerBean;
 import com.aliyun.openservices.ons.api.exception.ONSClientException;
 import cn.jboost.base.common.mq.IMqProducer;
 import cn.jboost.base.common.mq.MqMessage;
-import cn.jboost.base.common.util.GsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.CharEncoding;
 
@@ -33,7 +33,7 @@ public class RocketMqInternalProducer implements IMqProducer {
     @Override
     public void sendMessage(MqMessage message) {
         try {
-            String body = GsonUtil.toJson(message.getBody());
+            String body = JSONUtil.toJsonStr(message.getBody());
             Message msg = new Message(message.getTopic(), message.getTag(), message.getKey(), body.getBytes(CharEncoding.UTF_8));
             producerBean.start();
             producerBean.sendAsync(msg, new SendCallback() {
