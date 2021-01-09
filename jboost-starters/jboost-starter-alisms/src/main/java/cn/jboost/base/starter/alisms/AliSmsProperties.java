@@ -17,6 +17,5 @@ public class AliSmsProperties {
     private String accessKeySecret;
     private String signName;
     private String templateCode;
-    private String endpoint;
-    private String bucket;
+    private String regionId = "cn-changsha";
 }

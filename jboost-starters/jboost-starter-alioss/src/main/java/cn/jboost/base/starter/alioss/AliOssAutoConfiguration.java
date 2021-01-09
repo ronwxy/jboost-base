@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnClass(OSSClient.class)
 public class AliOssAutoConfiguration {
     @Bean
-    public AliOssManager aliOssManager(AliOssProperties properties){
-        return new AliOssManager(properties);
+    public AliOssProvider aliOssManager(AliOssProperties properties){
+        return new AliOssProvider(properties);
     }
 }

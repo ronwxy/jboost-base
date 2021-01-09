@@ -29,11 +29,11 @@ import java.util.*;
  * @date 2019/9/18 15:27
  */
 @Slf4j
-public class AliOssManager {
+public class AliOssProvider {
 
     private AliOssProperties properties;
 
-    public AliOssManager(AliOssProperties properties) {
+    public AliOssProvider(AliOssProperties properties) {
         Assert.notNull(properties, "aliyun oss properties is null.");
         Assert.notNull(properties.getAccessKeyId(), "aliyun oss accessKeyId is not set.");
         Assert.notNull(properties.getAccessKeySecret(), "aliyun oss accessKeySecret is not set.");

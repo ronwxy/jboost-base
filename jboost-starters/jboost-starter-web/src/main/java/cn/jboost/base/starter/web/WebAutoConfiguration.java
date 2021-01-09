@@ -61,7 +61,7 @@ public class WebAutoConfiguration {
      */
     @Bean
     @ConditionalOnMissingBean(name = "corsFilterRegistrationBean")
-    @ConditionalOnProperty(prefix = "web", name = "cors", havingValue = "enable")
+    @ConditionalOnProperty(prefix = "web", name = "cors", havingValue = "enable", matchIfMissing = true)
     public FilterRegistrationBean corsFilterRegistrationBean() {
         UrlBasedCorsConfigurationSource corsConfigurationSource = new UrlBasedCorsConfigurationSource();
 
@@ -100,7 +100,7 @@ public class WebAutoConfiguration {
      * @return
      */
     @Bean
-    @ConditionalOnProperty(prefix = "web", name = "reqId", havingValue = "enable")
+    @ConditionalOnProperty(prefix = "web", name = "reqId", havingValue = "enable", matchIfMissing = true)
     public FilterRegistrationBean requestIdFilter() {
         RequestIdFilter reqestIdFilter = new RequestIdFilter();
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
@@ -113,7 +113,7 @@ public class WebAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(ResponseWrapperAdvice.class)
-    @ConditionalOnProperty(prefix = "web", name = "responseWrapper", havingValue = "enable")
+    @ConditionalOnProperty(prefix = "web", name = "responseWrapper", havingValue = "enable", matchIfMissing = true)
     public ResponseWrapperAdvice responseWrapperAdvice(){
         return new ResponseWrapperAdvice();
     }

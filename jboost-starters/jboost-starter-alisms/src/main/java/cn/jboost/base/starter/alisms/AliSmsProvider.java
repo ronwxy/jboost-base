@@ -49,8 +49,8 @@ public class AliSmsProvider {
         final String domain = "dysmsapi.aliyuncs.com";// 短信API产品域名
         // 秘钥key和secret
         // 初始化ascClient,暂时不支持多region
-        IClientProfile profile = DefaultProfile.getProfile("cn-changsha", properties.getAccessKeyId(), properties.getAccessKeySecret());
-        DefaultProfile.addEndpoint("cn-hangzhou", "cn-changsha", product, domain);
+        IClientProfile profile = DefaultProfile.getProfile(properties.getRegionId(), properties.getAccessKeyId(), properties.getAccessKeySecret());
+        DefaultProfile.addEndpoint("cn-hangzhou", properties.getRegionId(), product, domain);
         return new DefaultAcsClient(profile);
     }
 
@@ -65,12 +65,12 @@ public class AliSmsProvider {
     }
 
     /**
-     * 发送默认模板短信验证码
+     * 发送配置模板短信验证码
      *
      * @param phoneNumber
      * @param identify
      */
-    public boolean sendVerifyCode( String phoneNumber, String identify) throws ClientException {
+    public boolean sendVerifyCode(String phoneNumber, String identify) throws ClientException {
         return sendSms(phoneNumber, properties.getSignName(), properties.getTemplateCode(), MessageFormat.format(VERIFY_CODE_PARAM_TEMPLATE, identify));
     }
 
@@ -100,7 +100,7 @@ public class AliSmsProvider {
         request.setTemplateParam(tempParam);
         SendSmsResponse response = acsClient.getAcsResponse(request);
         if (StringUtils.equals("isv.BUSINESS_LIMIT_CONTROL", response.getCode())) {
-            ExceptionUtil.rethrowClientSideException("短信已达上限,每天限10条,1小时内不超过5条!");
+            ExceptionUtil.rethrowClientSideException("今天短信发送已达上限");
         } else if (!StringUtils.equals("OK", response.getCode())) {
             ExceptionUtil.rethrowClientSideException(response.getMessage());
         }

@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 public @interface CountLimit {
     String key() default "";
     String prefix() default "countLimit:"; //key前缀
-    int limit() default 1;  // expire时间段内限制访问次数
+    int limit() default 1;  // period时间段内限制访问次数
     int period() default 1; // 表示时间段/秒
     LimitType limitType() default LimitType.METHOD;
 }
