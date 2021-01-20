@@ -40,7 +40,7 @@ public class RocketMqRemoteProducer implements IMqProducer {
                     // 消息内容
                     body.getBytes(CharEncoding.UTF_8),
                     // 消息标签
-                    message.getTag()
+                    message.getKey()
             );
             // 同步发送消息，只要不抛异常就是成功
             producer.publishMessage(msg);
