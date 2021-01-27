@@ -36,12 +36,15 @@
             </releases>
         </repository>
         <repository>
-            <id>cnbot</id>
-            <name>cnbot Repository</name>
-            <url>http://120.77.243.243:8081/repository/maven-public/</url>
+            <id>rdc-releases</id>
+            <url>https://packages.aliyun.com/maven/repository/2070450-release-00TM3A/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
+        </repository>
+        <repository>
+            <id>rdc-snapshots</id>
+            <url>https://packages.aliyun.com/maven/repository/2070450-snapshot-ZM6caJ/</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
@@ -65,16 +68,12 @@
 
     <distributionManagement>
         <repository>
-            <id>nexus-releases</id>
-            <url>
-                http://120.77.243.243:8081/repository/maven-releases/
-            </url>
+            <id>rdc-releases</id>
+            <url>https://packages.aliyun.com/maven/repository/2070450-release-00TM3A/</url>
         </repository>
         <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>
-                http://120.77.243.243:8081/repository/maven-snapshots/
-            </url>
+            <id>rdc-snapshots</id>
+            <url>https://packages.aliyun.com/maven/repository/2070450-snapshot-ZM6caJ/</url>
             <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
